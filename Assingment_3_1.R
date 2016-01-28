@@ -3,7 +3,7 @@
 # Felix Barangan, MS, RN, MSl(ASCP)
 # Plotting 30 -day Mortality Rates for heart Attack
 
-30_day_Mortality_rates <- function("outcome-of-care-measures.csv"){
+30_day_Mortality_rates <- function(){
 
         outcome <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
 
@@ -11,7 +11,7 @@
         outcome_11 <- as.numeric(outcome[,11])
 
 
-hist(outcome_11)
+       hist(outcome_11)
 }
 ###############################
 ## This function will determine if you have a valid State code
@@ -47,4 +47,7 @@ selectOutcome <-  function(desired_File, desired_Columns = c(1:10)){
         class(selectedColumn)
 }
 ##########################################
+
+# This is how you will sord when you find the selected columns
+orderdata <- selectedColumn[order(decreasing = FALSE, selectedColumn[,2]),]
 
