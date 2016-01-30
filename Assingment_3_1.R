@@ -47,14 +47,11 @@ groupingSelections <- function(Outcome = "Heart_Attack"){
 ## This will valid if user enter correct outcome
 validOutcome <- function(Outcome = "Heart_Attack") {
         outcomeList <- c("Heart_Attack", "Heart_Failure", "Pneumonia")
-
-        Heart_Attack_Selection <- names(selectedColumn[c(3:7,18:22)])
-        Heart_Failure_Selection <- names(selectedColumn[c(8:12,23:27)])
-        Pneumonia_Selection <- names(selectedColumn[c(13:17,28:32)])
-
+        Outcome <<- Outcome
         if (Outcome %in% outcomeList) {
-
+                return(groupingSelections(Outcome))
         }
+        cat("Please enter valid selection")
 }
 # -End of function: validOutcome
 # -Start of building the data
