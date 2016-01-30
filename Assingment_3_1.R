@@ -28,15 +28,32 @@ validState <- function(StateID = c("KY")) {
         }
 }
 # -End of function: validState
-## This will valid if user enter correct outcome
-validOutcome <- function(Outcome = "Heart Attack") {
-        outcomeList <- list("Heart_Attack", "Pneumonia", "Heart_Failure")
-        if (Outcome %in% outcomeList) {
-                print(outcomeList)
+# Start of Function: Grouping selection
+groupingSelections <- function(Outcome = "Heart_Attack"){
+        if (Outcome == "Heart_Attack" ) {
+                Heart_Attack_Selection <- names(selectedColumn[c(3:7,18:22)])
+                print(Heart_Attack_Selection)
         }
-        else{
-                cat("Please enter valid outcome.","\n","(","Heart Attack",","
-                    , "Pneumonia",",", "Heart Failure",")" )
+        if (Outcome == "Heart_Failure") {
+                Heart_Failure_Selection <- names(selectedColumn[c(8:12,23:27)])
+                print(Heart_Failure_Selection)
+        }
+        if (Outcome == "Pneumonia") {
+                Pneumonia_Selection <- names(selectedColumn[c(13:17,28:32)])
+                print(Pneumonia_Selection)
+        }
+}
+#-End of Outcome grouping
+## This will valid if user enter correct outcome
+validOutcome <- function(Outcome = "Heart_Attack") {
+        outcomeList <- c("Heart_Attack", "Heart_Failure", "Pneumonia")
+
+        Heart_Attack_Selection <- names(selectedColumn[c(3:7,18:22)])
+        Heart_Failure_Selection <- names(selectedColumn[c(8:12,23:27)])
+        Pneumonia_Selection <- names(selectedColumn[c(13:17,28:32)])
+
+        if (Outcome %in% outcomeList) {
+
         }
 }
 # -End of function: validOutcome
@@ -63,35 +80,54 @@ selectedColumn <- tbl_df (selectedColumn)
 # Change a column into integer
 as.integer (selectedColumn$Heart_Attack)
 
-
-#########################################
 # Renaming columns
+# Heart.Attack grouping
+groupingSelections <- function(Outcome = "Heart_Attack"){
+        if (Outcome == "Heart_Attack" ) {
+                Heart_Attack_Selection <- names(selectedColumn[c(3:7,18:22)])
+                print(Heart_Attack_Selection)
+        }
+        if (Outcome == "Heart_Failure") {
+                Heart_Failure_Selection <- names(selectedColumn[c(8:12,23:27)])
+                print(Heart_Failure_Selection)
+        }
+        if (Outcome == "Pneumonia") {
+                Pneumonia_Selection <- names(selectedColumn[c(13:17,28:32)])
+                print(Pneumonia_Selection)
+        }
+}
+#-End of Outcome grouping
 
 colnames(selectedColumn)[3] "Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack"
 colnames(selectedColumn)[4] "Comparison.to.U.S..Rate...Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack"
 colnames(selectedColumn)[5] "Lower.Mortality.Estimate...Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack"
 colnames(selectedColumn)[6] "Upper.Mortality.Estimate...Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack"
 colnames(selectedColumn)[7] "Number.of.Patients...Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack"
+
 colnames(selectedColumn)[8] "Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure"
 colnames(selectedColumn)[9] "Comparison.to.U.S..Rate...Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure"
 colnames(selectedColumn)[10] "Lower.Mortality.Estimate...Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure"
 colnames(selectedColumn)[11] "Upper.Mortality.Estimate...Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure"
 colnames(selectedColumn)[12] "Number.of.Patients...Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure"
+
 colnames(selectedColumn)[13] "Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia"
 colnames(selectedColumn)[14] "Comparison.to.U.S..Rate...Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia"
 colnames(selectedColumn)[15] "Lower.Mortality.Estimate...Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia"
 colnames(selectedColumn)[16] "Upper.Mortality.Estimate...Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia"
 colnames(selectedColumn)[17] "Number.of.Patients...Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia"
+
 colnames(selectedColumn)[18] "Hospital.30.Day.Readmission.Rates.from.Heart.Attack"
 colnames(selectedColumn)[19] "Comparison.to.U.S..Rate...Hospital.30.Day.Readmission.Rates.from.Heart.Attack"
 colnames(selectedColumn)[20] "Lower.Readmission.Estimate...Hospital.30.Day.Readmission.Rates.from.Heart.Attack"
 colnames(selectedColumn)[21] "Upper.Readmission.Estimate...Hospital.30.Day.Readmission.Rates.from.Heart.Attack"
 colnames(selectedColumn)[22] "Number.of.Patients...Hospital.30.Day.Readmission.Rates.from.Heart.Attack"
+
 colnames(selectedColumn)[23] "Hospital.30.Day.Readmission.Rates.from.Heart.Failure"
 colnames(selectedColumn)[24] "Comparison.to.U.S..Rate...Hospital.30.Day.Readmission.Rates.from.Heart.Failure"
 colnames(selectedColumn)[25] "Lower.Readmission.Estimate...Hospital.30.Day.Readmission.Rates.from.Heart.Failure"
 colnames(selectedColumn)[26] "Upper.Readmission.Estimate...Hospital.30.Day.Readmission.Rates.from.Heart.Failure"
 colnames(selectedColumn)[27] "Number.of.Patients...Hospital.30.Day.Readmission.Rates.from.Heart.Failure"
+
 colnames(selectedColumn)[28] "Hospital.30.Day.Readmission.Rates.from.Pneumonia"
 colnames(selectedColumn)[29] "Comparison.to.U.S..Rate...Hospital.30.Day.Readmission.Rates.from.Pneumonia"
 colnames(selectedColumn)[30] "Lower.Readmission.Estimate...Hospital.30.Day.Readmission.Rates.from.Pneumonia"
