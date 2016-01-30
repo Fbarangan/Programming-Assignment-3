@@ -27,10 +27,6 @@ function(StateID){
 
         }
 }
-
-
-
-}
 ###############################
 # Start Function : Outcome: sorted
 # This will order by outcome (column)
