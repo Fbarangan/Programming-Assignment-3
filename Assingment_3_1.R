@@ -60,10 +60,16 @@ Best <- function(StateID = "KY", Outcome = "Heart_Attack") {
             "Heart_Attack",",", "Heart_Failure",",", " or Pneumonia")
 
         # for State validation
-        if (StateID %in% state.abb) {
-           return(validState())
+        # if state ID is in the list of State ID in the state.abb
+        # then save it as "validStateID
+        if (StateID %in% stateIDList) {
+                stateIDList <- c(state.abb)
+                return(validState(StateID))
         }
-        cat("Please enter valid one selection.","\n", "Choices should be 2-letter State ID")
+        else{
+                cat("Please enter valid one selection.","\n", "Choices should be a 2-letter State ID.")
+
+        }
 }
 # -End of function: validOutcom
 # -Start of building the data
