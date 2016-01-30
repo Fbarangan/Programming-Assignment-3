@@ -15,18 +15,20 @@
 }
 ###############################
 ## This function will determine if you have a valid State code
-validState <- function(StateID = "KY"){
+function(StateID){
 
-        StateMatrix <- as.matrix(state.abb)
-        colnames(StateMatrix) <- c("State")
+        # if state ID is in the list of State ID in the state.abb
+        # then save it as "validStateID
+        if (StateID %in% state.abb) {
+                validStateID <- StateID
+                print(validStateID)
+        }
+        else{
+                cat("Please enter a valid 2 letter State ID")
 
-        desiredState <- as.matrix((state.abb[match(StateID, state.abb)]))
-        colnames(desiredState) <- c("State")
+        }
+}
 
-
-
-        print(desiredState)
-        desiredState <<- desiredState
 
 
 }
