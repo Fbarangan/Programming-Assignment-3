@@ -2,7 +2,10 @@
 # Coursera R Programming course Throug JHU
 # Felix Barangan, MS, RN, MSl(ASCP)
 # Plotting 30 -day Mortality Rates for heart Attack
-
+# Building the main console
+best <- function(State = "KY", Select_Outcome = ""){
+                if
+}
 30_day_Mortality_rates <- function(){
 
         outcome <- read.csv("outcome-of-care-measures.csv")
@@ -13,6 +16,7 @@
        hist(outcome_11)
 }
 ###############################
+
 ## This function will determine if you have a valid State code
 validState <- function(StateID = c("KY")) {
 
@@ -45,6 +49,7 @@ groupingSelections <- function(Outcome = "Heart_Attack"){
 }
 #-End of Outcome grouping
 ## This will valid if user enter correct outcome
+
 validOutcome <- function(Outcome = "Heart_Attack") {
         outcomeList <- c("Heart_Attack", "Heart_Failure", "Pneumonia")
         Outcome <<- Outcome
