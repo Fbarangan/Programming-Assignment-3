@@ -3,9 +3,7 @@
 # Felix Barangan, MS, RN, MSl(ASCP)
 # Plotting 30 -day Mortality Rates for heart Attack
 # Building the main console
-best <- function(State = "KY", Select_Outcome = ""){
-                if
-}
+
 30_day_Mortality_rates <- function(){
 
         outcome <- read.csv("outcome-of-care-measures.csv")
@@ -50,15 +48,24 @@ groupingSelections <- function(Outcome = "Heart_Attack"){
 #-End of Outcome grouping
 ## This will valid if user enter correct outcome
 
-validOutcome <- function(Outcome = "Heart_Attack") {
+Best <- function(StateID = "KY", Outcome = "Heart_Attack") {
         outcomeList <- c("Heart_Attack", "Heart_Failure", "Pneumonia")
+        StateID <<- StateID
         Outcome <<- Outcome
+
         if (Outcome %in% outcomeList) {
                 return(groupingSelections(Outcome))
         }
-        cat("Please enter valid selection")
+        cat("Please enter valid one selection.","\n", "Choices are:",
+            "Heart_Attack",",", "Heart_Failure",",", " or Pneumonia")
+
+        # for State validation
+        if (StateID %in% state.abb) {
+           return(validState())
+        }
+        cat("Please enter valid one selection.","\n", "Choices should be 2-letter State ID")
 }
-# -End of function: validOutcome
+# -End of function: validOutcom
 # -Start of building the data
         outcome <- read.csv("outcome-of-care-measures.csv")
 # Start Function : Outcome: sorted
